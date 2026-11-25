@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+/*
+  The look: a neuroscience lab's oscilloscope. A deep navy screen with a faint grid, instrument panels, a glowing
+  cyan trace that spikes yellow at the peak, and magenta for the action-potential "fired" badge. Every color the
+  screens use is one of these tokens.
+*/
+@theme {
+  --color-board: #0b1220;      /* the scope screen */
+  --color-card: #111a2e;       /* instrument panels */
+  --color-panel: #17223a;      /* inputs, rows inside panels */
+  --color-hover: #1f2d4a;
+  --color-line: #2a3a5c;
+  --color-ink: #e6edf7;
+  --color-muted: #93a3bd;
+  --color-accent: #22d3ee;     /* the trace: main buttons, titles */
+  --color-accent-soft: #0e3a47;
+  --color-on-accent: #04121a;
+  --color-spike: #facc15;      /* the peak of a spike, highlights */
+  --color-fire: #f472b6;       /* "fired" badges */
+  --color-ok: #4ade80;
+  --color-ok-soft: #12321f;
+  --color-bad: #f87171;
+  --color-bad-soft: #3a1616;
+  --color-warn: #fbbf24;
+  --color-warn-soft: #3a2c0c;
+  --font-display: "Chakra Petch", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-board);
+  color: var(--color-ink);
+}
+
+/* The scope screen: navy with a faint 1-division grid and a glow from the top */
+.lab-bg {
+  background-color: var(--color-board);
+  background-image:
+    radial-gradient(ellipse at 50% -10%, rgb(34 211 238 / 0.16), transparent 55%),
+    linear-gradient(rgb(34 211 238 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(34 211 238 / 0.05) 1px, transparent 1px);
+  background-size: auto, 32px 32px, 32px 32px;
+  background-attachment: fixed;
+}
+
+/* An instrument panel, with a thin glowing strip on top when "pinned" */
+.paper {
+  position: relative;
+  background: var(--color-card);
+  border: 1px solid var(--color-line);
+  box-shadow: 0 12px 30px rgb(0 0 0 / 0.45);
+}
+.pinned::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 12%;
+  right: 12%;
+  height: 3px;
+  border-radius: 0 0 4px 4px;
+  background: linear-gradient(90deg, transparent, var(--color-accent), var(--color-spike), var(--color-accent), transparent);
+  box-shadow: 0 0 14px rgb(34 211 238 / 0.7);
+}
+
+/* The "FIRED" badge: a magenta outlined label that pops in */
+.stamp {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-fire);
+  border: 2px solid var(--color-fire);
+  border-radius: 6px;
+  padding: 0.1em 0.55em;
+  text-shadow: 0 0 10px rgb(244 114 182 / 0.6);
+  box-shadow: 0 0 14px rgb(244 114 182 / 0.35);
+}
+@keyframes stamp-in {
+  0% { transform: scale(1.8); opacity: 0; }
+  60% { transform: scale(0.94); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.stamp-in { animation: stamp-in 0.4s ease-out both; }
+
+/* A small readout label (like the labels on an instrument) */
+.tag {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-on-accent);
+  background: var(--color-accent);
+  border-radius: 4px;
+  padding: 0.05em 0.45em;
+}
+
+/* The trace glows */
+.glow { filter: drop-shadow(0 0 4px rgb(34 211 238 / 0.85)); }
+
+/* A wrong pick: the panel shakes */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-3px); }
+}
+.shake { animation: shake 0.35s ease-in-out; }
+@keyframes pop {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.pop { animation: pop 0.3s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .stamp-in, .shake, .pop { animation: none; }
+}
+
+/* Bigger screens (projectors, big monitors): everything a little larger so it reads from the back of the room. */
+@media (min-width: 1600px) { html { font-size: 106.25%; } }
+@media (min-width: 1900px) { html { font-size: 112.5%; } }
