@@ -61,7 +61,7 @@ export default function Lobby({ onStart, onOpenBoard, hasGame, resume, onCloseGa
   return (
     <main className="lab-bg min-h-dvh p-4 text-ink sm:p-8">
       {/* Start shows the how-to guide first; the game (and its clock) starts when it closes */}
-      {guide && <HowToPlay site="spike" gameId="lobby" name={SITE_NAME} accent="#22d3ee" slides={HOW_TO_SLIDES} open onClose={() => { setGuide(false); start() }} />}
+      {guide && <HowToPlay site="spike" gameId={session?.gameId ?? 'lobby'} name={SITE_NAME} accent="#22d3ee" slides={HOW_TO_SLIDES} open onClose={() => { setGuide(false); start() }} />}
       {hasGame && <button onClick={onOpenBoard} className="fixed right-4 top-4 z-20 rounded-lg border border-line bg-card px-4 py-2 font-display hover:bg-hover">Back to the game</button>}
 
       <header className="mx-auto mb-10 max-w-5xl text-center">
