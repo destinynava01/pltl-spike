@@ -133,7 +133,7 @@ export default function Lobby({ onStart, onOpenBoard, hasGame, resume, onCloseGa
                       <li key={r.id}>
                         <label className={`flex cursor-pointer items-start gap-3 rounded-lg border px-3 py-2 text-sm ${on ? 'border-accent bg-accent-soft' : 'border-line bg-panel hover:bg-hover'}`}>
                           <input type="checkbox" checked={on} onChange={() => toggleRound(r.id)} className="mt-1 h-4 w-4 accent-cyan-400" />
-                          <span className="flex-1"><b>{r.emoji} {r.title}</b>{r.optional && <span className="ml-1 text-xs text-muted">(optional)</span>}<span className="block text-muted">{r.what}</span></span>
+                          <span className="flex-1"><b>{r.emoji} {r.title}</b><span className="block text-muted">{r.what}</span></span>
                           <span className="text-xs text-muted">{r.steps} steps</span>
                         </label>
                       </li>

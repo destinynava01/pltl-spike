@@ -36,14 +36,14 @@ export const SLIDES = [
   },
   {
     title: 'The rounds',
-    text: 'Fire it (the action potential, step by step), Big enough? (threshold and all-or-none), Too soon? (refractory periods), Myelin race (optional), and Across the synapse (the neuromuscular junction or a dopamine synapse, how the signal stops, and a toxin twist).',
+    text: 'Fire it (the action potential, step by step), Big enough? (threshold and all-or-none), Too soon? (refractory periods), Myelin race, and Across the synapse (the neuromuscular junction or a dopamine synapse, how the signal stops, and a toxin twist).',
     art: (
       <Panel>
         <ol className="space-y-1">
           <li>⚡ <b>Fire it</b></li>
           <li>📏 <b>Big enough?</b></li>
           <li>⏱ <b>Too soon?</b></li>
-          <li>🏁 <b>Myelin race</b> <span className="text-muted">(optional)</span></li>
+          <li>🏁 <b>Myelin race</b></li>
           <li>🔗 <b>Across the synapse</b></li>
         </ol>
       </Panel>

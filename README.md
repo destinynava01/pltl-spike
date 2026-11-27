@@ -8,7 +8,7 @@ picks (choices shuffled, numbers and the synapse example generated per team):
    (repolarization), the overshoot (hyperpolarization), and the Na⁺/K⁺ pump (3 out, 2 in, ATP).
 2. **Big enough?** single and summed stimuli vs threshold, and all-or-none.
 3. **Too soon?** absolute vs relative refractory periods, and why the signal only goes one way.
-4. **Myelin race** (optional): saltatory conduction, nodes of Ranvier, oligodendrocytes vs Schwann cells, MS.
+4. **Myelin race:** saltatory conduction, nodes of Ranvier, oligodendrocytes vs Schwann cells, MS.
 5. **Across the synapse:** the neuromuscular junction (acetylcholine) or a dopamine synapse, step by step; how the
    signal stops (acetylcholinesterase or reuptake); and a drug or toxin twist.
 
