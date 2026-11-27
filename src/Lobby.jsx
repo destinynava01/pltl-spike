@@ -70,7 +70,7 @@ export default function Lobby({ onStart, onOpenBoard, hasGame, resume, onCloseGa
         <p className="tag text-sm">{SITE_NAME}</p>
         <h1 className="mt-3 font-display text-5xl font-bold">Lab Bench</h1>
         <p className="mt-2 text-muted">Set up the teams, pick the rounds, then let the neurons fire.</p>
-        <p className="mt-2 text-sm font-bold"><a href={HUB_URL} className="text-accent hover:underline">← All games</a></p>
+        <p className="mt-2 text-sm font-bold"><a href={HUB_URL} className="text-accent hover:underline">← All games</a><span className="mx-2 opacity-50">·</span><a href="/scenarios" className="text-accent hover:underline">Submit scenarios</a><span className="mx-2 opacity-50">·</span><a href="/review" className="text-accent hover:underline">Review queue</a></p>
         <div className="mt-6">
           {session ? (
             <div className="flex flex-col items-center gap-3">
