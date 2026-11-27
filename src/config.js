@@ -23,3 +23,7 @@ export function clockText(ms) {
   const s = Math.max(0, Math.ceil(ms / 1000))
   return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`
 }
+
+// Leader scenarios (the /scenarios and /review pages): this game's id, and the pages' background
+export const SCENARIO_GAME = 'spike'
+export const PAGE_BG = 'lab-bg'
